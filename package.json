@@ -2,5 +2,17 @@
   "name": "teachable_machine",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "bootstrap": "^5.0.1"
+  },
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "prebuild": "npx rimraf build",
+    "build": "parcel build --public-url ./ ./src/index.html --experimental-scope-hoisting --out-dir build"
+  },
+  "devDependencies": {
+    "sass": "^1.34.1"
+  }
 }
