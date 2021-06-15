@@ -1,11 +1,20 @@
 import React from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faVideo,
+  faCircleNotch,
+  faSync,
+  faCog,
+  faStroopwafel
+} from "@fortawesome/free-solid-svg-icons";
+import Logo from './images/logo.jpg'
 
 function Header() {
   return (
     <header className="bg-white divide-y ml-18 border-b fixed inset-x-0">
       <div className="flex justify-between items-center h-14 mx-4">
         <div className="-ml-3">
-          <img src="images/logo.jpg" alt="youtube logo" className="w-20 h-12" />
+          <img src={Logo} className="w-20 h-12" />
         </div>
         <div className="flex items-center justify-center flex-grow">
           <input type="text" placeholder="Search" className="border border-gray-400 h-8  px-1 py-2 focus:outline-none focus:border-blue-600 w-3/5" />
@@ -15,13 +24,13 @@ function Header() {
         </div>
         <div className="flex items-center justify-center space-x-4">
           <button className="flex items-center justify-center">
-            <i className="material-icons">video_call</i>
+            <FontAwesomeIcon icon={faVideo} spin />
           </button>
           <button className="flex items-center justify-center">
-            <i className="material-icons">apps</i>
+            <FontAwesomeIcon icon={faVideo} spin />
           </button>
           <button className="flex items-center justify-center">
-            <i className="material-icons">notifications</i>
+            <FontAwesomeIcon icon={faVideo} spin />
           </button>
           <button>
             <div className="h-8 w-8 rounded-full bg-blue-300 overflow-hidden object-cover">
