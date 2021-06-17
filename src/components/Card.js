@@ -1,30 +1,31 @@
-import React from 'react'
+import React, { Component } from "react"
 
-function Card() {
-  return (
-    <div className="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center" >
-      <div className="bg-white rounded-lg mt-5">
-        <img
-          src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
-          className="h-40 rounded-md"
-          alt=""
-        />
-      </div>
-      <div className="bg-white shadow-lg rounded-lg -mt-4 w-64">
-        <div className="py-5 px-5">
-          <span className="font-bold text-gray-800 text-lg">Geek Pizza</span>
-          <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-600 font-light">
-              Size : Regular
+class Card extends Component {
+
+  render() {
+    return (
+      <a href={this.props.redirectUrl}>
+        <div className="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 rounded overflow-hidden border w-full lg:w-11/12 md:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0">
+          <div className="w-full flex justify-between p-3">
+            <div className="flex">
             </div>
-            <div className="text-2xl text-red-600 font-bold">
-              $ 8.00
+            <span className="px-2 hover:bg-gray-300 cursor-pointer rounded"><i className="fas fa-ellipsis-h pt-2 text-lg"></i></span>
+          </div>
+          <img className="w-full bg-cover" src="https://3.bp.blogspot.com/-Chu20FDi9Ek/WoOD-ehQ29I/AAAAAAAAK7U/mc4CAiTYOY8VzOFzBKdR52aLRiyjqu0MwCLcBGAs/s1600/DSC04596%2B%25282%2529.JPG" />
+          <div className="px-3 pb-2">
+            <div className="pt-1">
+              <div className="mb-2 text-xl">
+                { this.props.projectName }
+              </div>
+              <div className="mb-2 text-sm">
+                Lord of the Rings is my favorite film-series. One day I'll make my way to New Zealand to visit the Hobbiton set!
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  )
+      </a>
+    )
+  }
 }
 
 export default Card
