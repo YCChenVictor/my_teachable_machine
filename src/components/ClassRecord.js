@@ -1,15 +1,16 @@
 import React, { Component } from "react"
+import Webcam from 'components/webcam/Webcam'
 
 class ClassRecord extends Component {
 
   render() {
     if (this.props.open) {
       return (
-        <h1>Hello World</h1>
+        <Webcam />
       )
     } else {
       return (
-        <h1>aaa</h1>
+        <h1>close</h1>
       )
     }
   }
