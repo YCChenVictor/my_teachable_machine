@@ -27,9 +27,6 @@ class Class extends Component {
         </h1>
         <div>
           <div>
-            Add Image Samples:
-          </div>
-          <div>
             <button onClick={this.toggleChildMenu}>
               webcam
             </button>

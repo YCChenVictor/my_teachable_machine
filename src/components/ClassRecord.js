@@ -6,7 +6,9 @@ class ClassRecord extends Component {
   render() {
     if (this.props.open) {
       return (
-        <Webcam />
+        <div>
+          <Webcam />
+        </div>
       )
     } else {
       return (

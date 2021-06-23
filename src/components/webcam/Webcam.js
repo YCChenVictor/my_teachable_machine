@@ -1,21 +1,40 @@
 import React, { Component } from "react"
 
 class Webcam extends Component {
-  
+
+  constructor(props) {
+    super(props);
+    this.video = React.createRef();
+    this.canvas = React.createRef();
+    this.takePhoto = this.takePhoto.bind(this); // add this so that it works (gotta take some note)
+  }
+
+  takePhoto() {
+    const video = this.video.current;
+    const canvas = this.canvas.current;
+    const context = canvas.getContext('2d');
+    canvas.width = 320;
+    canvas.height = 100;
+    context.drawImage(video, 0, 0, 320, 100);
+    const data = canvas.toDataURL('image/png');
+    photo.setAttribute('src', data);
+  }
+
   componentDidMount() {
-    const video = document.getElementById("video");
+    const video = this.video.current;
     if (navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(function (stream) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
           video.srcObject = stream;
-      }).catch(function (error) {
-          console.log("Something went wrong");
-      });
+        })
+        .catch(function (error) {
+          console.log(`Something went wrong, ${ error }`);
+        });
     }
   }
 
   componentWillUnmount() {
-    const video = document.getElementById("video");
+    const video = this.video.current;
     const stream = video.srcObject;
     const tracks = stream.getTracks();
 
@@ -29,14 +48,20 @@ class Webcam extends Component {
   render() {
     return (
       <div className="camera">
-        <video id="video" width="100%" height="100%" autoPlay>Video stream not available.</video>
-        <button id="startbutton">Take photo</button>
+        <video ref={ this.video } width="100%" height="100%" autoPlay>Video stream not available.</video>
+        <button onClick={ this.takePhoto }>
+          Take photo
+        </button>
+        <div>
+          Add Image:
+          <div className="output">
+            <canvas ref={ this.canvas }></canvas>
+            <img id="photo" />
+          </div>
+        </div>
       </div>
     )
   }
 }
-
-const video = document.getElementById("video")
-console.log(video)
 
 export default Webcam
