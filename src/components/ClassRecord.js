@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Webcam from 'components/webcam/Webcam'
+import WebcamCapture from 'components/webcam/Webcam'
 
 class ClassRecord extends Component {
 
@@ -7,7 +7,7 @@ class ClassRecord extends Component {
     if (this.props.open) {
       return (
         <div>
-          <Webcam />
+          <WebcamCapture />
         </div>
       )
     } else {
