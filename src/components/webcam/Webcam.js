@@ -19,6 +19,7 @@ function WebcamCapture() {
         id: images.length,
         img: imageSrc
       }])
+      console.log(images)
     },
     [webcamRef]
   );
